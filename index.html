@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather & AQI Checker</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+
+      <!-- New User Name & Gender Input -->
+      <div id="userSetup">
+        <input type="text" id="userName" placeholder="Enter your name..." />
+        <select id="userGender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <button onclick="setUserGreeting()">Start</button>
+      </div>
+
+      <!-- Greeting Section -->
+      <div id="greetingSection" style="display:none;">
+        <h2 id="greetTitle"></h2>
+        <p id="greetSub">How are your summer days going?</p>
+        <input type="text" id="greetingInput" placeholder="Type here..." />
+        <button onclick="sendGreeting()">Send</button>
+        <p id="greetingReply"></p>
+      </div>
+
+      <input type="text" id="locationInput" placeholder="Enter city (e.g., Kathmandu)" />
+      <button onclick="fetchData()">Search</button>
+      <button onclick="useMyLocation()">Use My Location</button>
+
+      <div class="temp-toggle">
+        <label><input type="radio" name="unit" value="metric" checked /> °C</label>
+        <label><input type="radio" name="unit" value="imperial" /> °F</label>
+      </div>
+
+      <label><input type="checkbox" id="darkModeToggle" /> Dark Mode</label>
+
+      <select id="languageSelect" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="np">नेपाली</option>
+      </select>
+
+      <p id="error" class="error"></p>
+
+      <div id="result">
+        <p id="weather"></p>
+        <p id="coords"></p>
+        <p id="timestamp"></p>
+        <p id="aqi"></p>
+        <p id="healthAdvice"></p>
+        <ul id="forecast"></ul>
+      </div>
+
+      <h3>AQI Index</h3>
+      <canvas id="aqiChart" width="400" height="200"></canvas>
+
+      <h3>Temperature (Next 5 Forecasts)</h3>
+      <canvas id="tempChart" width="400" height="200"></canvas>
+
+    </div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
